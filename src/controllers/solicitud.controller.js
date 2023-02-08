@@ -9,8 +9,8 @@ exports.create = async (req, res) => {
       throw new Error("No se encontró el cuerpo en la petición.");
 
     const baseRepository = new BaseRepository();
-    const result = await baseRepository.findOne(Solicitud, {
-      userId: body.userId,
+    const result = await baseRepository.findOne(User, {
+      id: body.userId,
     });
 
     if (!result)
