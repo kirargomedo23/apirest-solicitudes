@@ -2,8 +2,6 @@ const Solicitud = require("./solicitud.model");
 const User = require("./user.model");
 
 (async () => {
-  /* await User.sync({ alter: true });
-  await Solicitud.sync({ alter: true }); */
   await User.sync();
   await Solicitud.sync();
 })();

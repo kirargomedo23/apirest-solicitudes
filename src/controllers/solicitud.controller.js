@@ -16,7 +16,7 @@ exports.create = async (req, res) => {
     if (!result)
       throw new Error("No se encontró información del userId enviado.");
 
-    const resultSave = baseRepository.save(Solicitud, body);
+    const resultSave = await baseRepository.save(Solicitud, body);
     if (!resultSave) throw new Error("No se pudo guardar la solicitud.");
 
     return res.json({
@@ -65,7 +65,7 @@ exports.update = async (req, res) => {
     if (!id) throw new Error("No se encontró el id en la petición.");
 
     const baseRepository = new BaseRepository();
-    const result = baseRepository.update(Solicitud, body, { id: id });
+    const result = await baseRepository.update(Solicitud, body, { id: id });
     if (!result) throw new Error("No se pudo actualizar la solicitud.");
 
     return res.json({

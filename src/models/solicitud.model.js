@@ -20,6 +20,10 @@ const Solicitud = sequelize.define(
     description: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        is: /^[a-z]+$/i,
+        min: 8,
+      },
     },
   },
   {
