@@ -3,7 +3,7 @@ class BaseRepository {
 
   async findOne(model, filters) {
     const result = await model.findOne({ where: filters });
-    if (result) return true;
+    if (result) return result;
 
     return false;
   }
@@ -18,6 +18,15 @@ class BaseRepository {
     const result = await model.update(data, {
       where: filters,
     });
+    if (result) return true;
+    return false;
+  }
+
+  async delete(model, filters) {
+    const result = await model.destroy({
+      where: filters,
+    });
+
     if (result) return true;
     return false;
   }
