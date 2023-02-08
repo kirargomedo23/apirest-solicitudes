@@ -36,6 +36,15 @@ class BaseRepository {
     if (!result) return false;
     return result;
   }
+
+  async findAll(model, filters, includeModels = null) {
+    const result = await model.findAll({
+      where: filters,
+      include: includeModels ?? undefined,
+    });
+    if (!result) return false;
+    return result;
+  }
 }
 
 module.exports = BaseRepository;
