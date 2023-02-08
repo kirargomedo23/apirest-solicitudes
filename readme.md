@@ -18,3 +18,8 @@ El proyecto se ejecuta con el siguiente comando:
 ```bash
   npm run start
 ```
+
+## Postman
+
+Se agregó un archivo json que obtuve de postman de las pruebas que realicé. Se encuentra en
+la carpeta llamado postman.
