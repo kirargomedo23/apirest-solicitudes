@@ -16,5 +16,6 @@ app.listen(port);
 console.log("API escuchando en: " + `http://localhost:${port}/`);
 
 app.use("/api/user", require("@router/user.router.js"));
+app.use("/api/solicitud", require("@router/solicitud.router.js"));
 
 module.exports = app;
