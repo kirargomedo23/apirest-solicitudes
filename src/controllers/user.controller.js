@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
       throw new Error("No se encontró el cuerpo en la petición.");
 
     const baseRepository = new BaseRepository();
-    const result = baseRepository.save(User, body);
+    const result = await baseRepository.save(User, body);
     if (!result) throw new Error("No se pudo guardar el usuario.");
 
     return res.json({
@@ -55,7 +55,7 @@ exports.update = async (req, res) => {
     if (!id) throw new Error("No se encontró el id en la petición.");
 
     const baseRepository = new BaseRepository();
-    const result = baseRepository.update(User, body, { id: id });
+    const result = await baseRepository.update(User, body, { id: id });
     if (!result) throw new Error("No se pudo actualizar el usuario.");
 
     return res.json({
