@@ -8,7 +8,7 @@ const {
 } = require("@controllers/solicitud.controller.js");
 
 router.post("/", create);
-router.get("/:userId", getAll);
+router.get("/", getAll);
 router.put("/:id", update);
 router.delete("/:id", remove);
 

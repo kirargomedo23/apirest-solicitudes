@@ -33,7 +33,7 @@ exports.create = async (req, res) => {
 
 exports.getAll = async (req, res) => {
   try {
-    let { userId } = req.params;
+    let { userId } = req.query;
 
     if (!userId) throw new Error("No se encontró userId en la petición.");
     userId = parseInt(userId);
