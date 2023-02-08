@@ -24,6 +24,38 @@ exports.create = async (req, res) => {
   }
 };
 
+exports.getAll = async (req, res) => {
+  try {
+    let { offset, limit } = req.query;
+
+    if (!offset) throw new Error("No se encontró el offset en la petición.");
+    if (!limit) throw new Error("No se encontró el limit en la petición.");
+
+    offset = parseInt(offset);
+    limit = parseInt(limit);
+
+    if (isNaN(offset) || isNaN(limit))
+      throw new Error("El valor de offset o limit no está permitido.");
+
+    const baseRepository = new BaseRepository();
+    const result = await baseRepository.findAllWithPagination(
+      User,
+      offset,
+      limit
+    );
+
+    return res.json({
+      msg: "Proceso ejecutado exitosamente",
+      data: result,
+      success: true,
+    });
+  } catch (error) {
+    return res
+      .status(400)
+      .json({ msg: error.message, data: [], status: false });
+  }
+};
+
 exports.getOne = async (req, res) => {
   try {
     const { id } = req.params;

@@ -30,6 +30,12 @@ class BaseRepository {
     if (result) return true;
     return false;
   }
+
+  async findAllWithPagination(model, offset, limit = 10) {
+    const result = await model.findAll({ offset, limit });
+    if (!result) return false;
+    return result;
+  }
 }
 
 module.exports = BaseRepository;
